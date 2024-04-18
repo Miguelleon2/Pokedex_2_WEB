@@ -94,6 +94,56 @@ export const PokemonProvider = ({ children }) => {
 		setOffset(offset + 50);
 	};
 
+    
+	// Filter Function + State
+	const [typeSelected, setTypeSelected] = useState({
+		grass: false,
+		normal: false,
+		fighting: false,
+		flying: false,
+		poison: false,
+		ground: false,
+		rock: false,
+		bug: false,
+		ghost: false,
+		steel: false,
+		fire: false,
+		water: false,
+		electric: false,
+		psychic: false,
+		ice: false,
+		dragon: false,
+		dark: false,
+		fairy: false,
+		unknow: false,
+		shadow: false,
+	});
+
+    const [filteredPokemons, setfilteredPokemons] = useState([]);
+
+	const handleCheckbox = e => {
+		setTypeSelected({
+			...typeSelected,
+			[e.target.name]: e.target.checked, //lo utilizamos porque equivale a sacra el nombre con el target que es lo que se necesita
+		});
+
+		if (e.target.checked) {
+			const filteredResults = globalPokemons.filter(pokemon => //almacenar en una nueva constante y tambien sacamos el vector de tipos de pokegay y lo recorremos .map
+				pokemon.types
+					.map(type => type.type.name)
+					.includes(e.target.name)
+			);
+			setfilteredPokemons([...filteredPokemons, ...filteredResults]); // para que si sellecciono varios check los tenga en cuneta todos
+		} else {
+			const filteredResults = filteredPokemons.filter(
+				pokemon =>
+					!pokemon.types
+						.map(type => type.type.name)
+						.includes(e.target.name)
+			);
+			setfilteredPokemons([...filteredResults]);
+		}
+	};
 
     return (
         <PokemonContext.Provider value={{
@@ -103,7 +153,16 @@ export const PokemonProvider = ({ children }) => {
             allPokemons,
             globalPokemons,
             getPokemonByID,
-            onClickLoadMore
+            onClickLoadMore,
+            //loader
+            loading,
+            setLoading,
+            //filter
+            active,
+            setActive,
+            //check box
+            handleCheckbox,
+			filteredPokemons
 
         }}>
             {children}

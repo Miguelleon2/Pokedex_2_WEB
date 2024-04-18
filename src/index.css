@@ -30,10 +30,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	
 }
 
 body {
 	font-family: 'Montserrat';
+	background-color: #e0e0e0;
 }
 /* Globales */
 .container {
@@ -92,7 +94,7 @@ header form {
 	border-radius: 25px;
 	padding: 15px 30px;
 	font-family: inherit;
-	color: #fff;
+	color: #ffffff;
 	background-color: var(--color-primary);
 	cursor: pointer;
 	font-weight: 500;
@@ -107,6 +109,7 @@ header form {
 /* Btn Filter */
 .container-filter {
 	display: flex;
+	justify-content: right;
 }
 
 .icon-filter {
@@ -137,7 +140,7 @@ header form {
 }
 
 .card-img {
-	background-color: #f2f2f2;
+	background-color: #201e1e;
 
 	display: flex;
 	align-items: center;
@@ -262,7 +265,7 @@ header form {
 	width: 250px;
 
 	color: #555;
-	background-color: #f2f2f2;
+	background-color: #201e1e;
 	height: 100%;
 	padding-top: 140px;
 	transition: all 0.3s linear;
