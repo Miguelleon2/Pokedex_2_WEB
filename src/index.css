@@ -449,3 +449,15 @@ Styles of Pokemon Single Page
 	background-color: var(--color-primary-hover);
 	color: #000;
 }
+
+/*login*/
+.padre {
+    width: 500px;
+    height: 300px; 
+    position: absolute; 
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+	background-color: transparent;
+	
+}
